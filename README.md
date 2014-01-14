@@ -4,6 +4,6 @@ FreeBSD Ports
 multimedia
 ----------
 
-### smplayer
+### smplayer-mod
 
 * Add `files/patch-src_playlist.cpp` to set the playlist shrinkable.
