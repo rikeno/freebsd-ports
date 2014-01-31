@@ -6,10 +6,14 @@ multimedia
 
 ### smplayer-mod
 
-SMPlayer with personal patches
+SMPlayer with personal patches.
 
 * Add `files/patch-src_playlist.cpp` to set the playlist shrinkable.
 
 ### smplayer-devel
 
-SMPlayer svn version
+SMPlayer svn version.
+
+### smtube
+
+Commented out RUN_DEPENDS.
