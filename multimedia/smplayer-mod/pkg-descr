@@ -1,7 +1,0 @@
-smplayer intents to be a complete front-end for mplayer,from
-basic features like playing videos, dvds, vcdsto more advancing
-features like support for mplayer filters,edl lists, and more.
-
-WWW: http://smplayer.sourceforge.net/
-
-* Add playlist shrinkable patch.
