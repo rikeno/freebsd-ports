@@ -1,6 +1,5 @@
 # Created by: r1ke<r1ke.gm@gmail.com>
 # $FreeBSD$
-
 PORTNAME=	smplayer
 PKGNAMESUFFIX=	-devel
 DISTVERSION=	0.8.6.r${SVN_REV}
@@ -29,18 +28,19 @@ INSTALLS_ICONS=	yes
 PORTDOCS=	Changelog Not_so_obvious_things.txt Readme.txt \
 		Release_notes.txt Watching_TV.txt
 
-OPTIONS_DEFINE=	MPLAYER2 DOCS SKINS THEMES NODEBUG
+OPTIONS_DEFINE=	MPLAYER2 DOCS SKINS THEMES NODEBUG EX_PATCH
 
 MPLAYER2_DESC?=	Use MPlayer2 instead of MPlayer as back-end
 SKINS_DESC?=	Add skins
 THEMES_DESC?=	Add extra icon themes
 NODEBUG_DESC?=	Define NO_DEBUG_ON_CONSOLE
+EX_PATCH_DESC?=	Apply patches(EXPERIMENTAL)
 
-OPTIONS_DEFAULT=DOCS NODEBUG
+OPTIONS_DEFAULT=DOCS NODEBUG EX_PATCH
 
 SUB_FILES=	pkg-message
 
-CONFLICTS=	smplayer-0.* smplayer-mod-0.*
+CONFLICTS=	smplayer-0.*
 
 .include <bsd.port.options.mk>
 
@@ -56,6 +56,13 @@ RUN_DEPENDS+=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smplayer
 
 .if ${PORT_OPTIONS:MTHEMES}
 RUN_DEPENDS+=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smplayer-themes
+.endif
+
+.if ${PORT_OPTIONS:MEX_PATCH}
+PATCH_SITES=	https://gist.github.com/r1ke/8748732/raw/29bd3165e51eea1a65b30b4b2a6eec88b1655e60/:1 \
+		https://gist.github.com/r1ke/8748732/raw/25fe2ead31b516af3f9541a0a9b594319e83e58c/:2
+PATCHFILES=	compactmode_without_titlebar.diff:1 \
+		shrinkable_playlist.diff:2
 .endif
 
 post-patch:

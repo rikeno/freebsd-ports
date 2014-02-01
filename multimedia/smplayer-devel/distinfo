@@ -1,2 +1,6 @@
 SHA256 (smplayer-0.8.6.r6004.zip) = 631c3ad913989c33d3be3166e37263b170bb7098ad041a6749c66907f35886df
 SIZE (smplayer-0.8.6.r6004.zip) = 5265185
+SHA256 (compactmode_without_titlebar.diff) = 1d8f66a6c31c4c12a014416a541d350ae8c292365e460ac67afb783709150df5
+SIZE (compactmode_without_titlebar.diff) = 542
+SHA256 (shrinkable_playlist.diff) = 09ee361019363f3c83e19a05bdc1c82d2e957bb615f0d9e18a4e1b3bd4bf74da
+SIZE (shrinkable_playlist.diff) = 417
