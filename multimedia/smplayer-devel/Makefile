@@ -22,9 +22,10 @@ NO_WRKSUBDIR=	yes
 USES=		desktop-file-utils dos2unix gmake qmake
 DOS2UNIX_REGEX=	.*.[^p][^n][^g]$
 INSTALLS_ICONS=	yes
-
 PORTDOCS=	Changelog Not_so_obvious_things.txt Readme.txt \
 		Release_notes.txt Watching_TV.txt
+SUB_FILES=	pkg-message
+CONFLICTS=	smplayer-0.*
 
 OPTIONS_DEFINE=	DOCS SKINS THEMES NODEBUG EX_PATCH
 OPTIONS_SINGLE=	BACKEND
@@ -39,33 +40,16 @@ MPLAYER2_DESC=	Use MPlayer2 as backend
 
 OPTIONS_DEFAULT=DOCS NODEBUG EX_PATCH MPLAYER
 
-SUB_FILES=	pkg-message
-CONFLICTS=	smplayer-0.*
+SKINS_RUN_DEPENDS=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smplayer-skins
+THEMES_RUN_DEPENDS=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smplayer-themes
+MPLAYER_RUN_DEPENDS=	mplayer:${PORTSDIR}/multimedia/mplayer
+MPLAYER2_RUN_DEPENDS=	mplayer:${PORTSDIR}/multimedia/mplayer2
+EX_PATCH_PATCH_SITES=	https://gist.github.com/r1ke/8748732/raw/29bd3165e51eea1a65b30b4b2a6eec88b1655e60/:1 \
+			https://gist.github.com/r1ke/8748732/raw/25fe2ead31b516af3f9541a0a9b594319e83e58c/:2
+EX_PATCH_PATCHFILES+=	compactmode_without_titlebar.diff:1 \
+			shrinkable_playlist.diff:2
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MMPLAYER}
-RUN_DEPENDS+=	mplayer:${PORTSDIR}/multimedia/mplayer
-.endif
-
-.if ${PORT_OPTIONS:MMPLAYER2}
-RUN_DEPENDS+=	mplayer:${PORTSDIR}/multimedia/mplayer2
-.endif
-
-.if ${PORT_OPTIONS:MSKINS}
-RUN_DEPENDS+=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smplayer-skins
-.endif
-
-.if ${PORT_OPTIONS:MTHEMES}
-RUN_DEPENDS+=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smplayer-themes
-.endif
-
-.if ${PORT_OPTIONS:MEX_PATCH}
-PATCH_SITES+=	https://gist.github.com/r1ke/8748732/raw/29bd3165e51eea1a65b30b4b2a6eec88b1655e60/:1 \
-		https://gist.github.com/r1ke/8748732/raw/25fe2ead31b516af3f9541a0a9b594319e83e58c/:2
-PATCHFILES+=	compactmode_without_titlebar.diff:1 \
-		shrinkable_playlist.diff:2
-.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|&& $$(QMAKE) $$(QMAKE_OPTS)||; \
@@ -73,12 +57,10 @@ post-patch:
 		s|/share/man|/man|g; \
 		s| make| ${MAKE_CMD}|g' \
 		${WRKSRC}/Makefile
-
 .if ${PORT_OPTIONS:MNODEBUG}
 	@${REINPLACE_CMD} -e 's|#\(DEFINES += NO_DEBUG_ON_CONSOLE\)|\1|' \
 		${WRKSRC}/src/smplayer.pro
 .endif
-
 	@${REINPLACE_CMD} -e 's|0UNKNOWN|${SVN_REV}|' ${WRKSRC}/get_svn_revision.sh
 
 post-install:
