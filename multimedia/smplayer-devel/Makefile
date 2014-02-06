@@ -1,24 +1,22 @@
-# Created by: r1ke<r1ke.gm@gmail.com>
 # $FreeBSD$
-PORTNAME=	smplayer
-PKGNAMESUFFIX=	-devel
-DISTVERSION=	0.8.6.r${SVN_REV}
-SVN_REV=	6004
 
+PORTNAME=	smplayer
+PORTVERSION=	0.8.6.r${SVN_REV}
 CATEGORIES=	multimedia audio
 MASTER_SITES=	http://www.assembla.com/code/smplayer/subversion/nodes/${SVN_REV}/${PORTNAME}/trunk?_format=zip?dummy=/
+PKGNAMESUFFIX=	-devel
 
-MAINTAINER=	r1ke.gm@gmail.com
-COMMENT=	A great MPlayer front-end
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Qt based MPlayer front-end
+
 LICENSE=	GPLv2
 
+SVN_REV=	6004
 USE_QT4=	gui network script xml moc_build rcc_build uic_build \
 		uic3_build porting_build linguist_build
-
 ALL_TARGET=	src/smplayer
 CONFIGURE_WRKSRC=	${WRKSRC}/src
 MAKE_ARGS+=	PREFIX=${PREFIX} DESTDIR=${STAGEDIR}
-
 USE_ZIP=	yes
 NO_WRKSUBDIR=	yes
 USES=		desktop-file-utils dos2unix gmake qmake
@@ -28,26 +26,30 @@ INSTALLS_ICONS=	yes
 PORTDOCS=	Changelog Not_so_obvious_things.txt Readme.txt \
 		Release_notes.txt Watching_TV.txt
 
-OPTIONS_DEFINE=	MPLAYER2 DOCS SKINS THEMES NODEBUG EX_PATCH
+OPTIONS_DEFINE=	DOCS SKINS THEMES NODEBUG EX_PATCH
+OPTIONS_SINGLE=	BACKEND
+OPTIONS_SINGLE_BACKEND=	MPLAYER MPLAYER2
 
-MPLAYER2_DESC?=	Use MPlayer2 instead of MPlayer as back-end
-SKINS_DESC?=	Add skins
-THEMES_DESC?=	Add extra icon themes
-NODEBUG_DESC?=	Define NO_DEBUG_ON_CONSOLE
-EX_PATCH_DESC?=	Apply patches(EXPERIMENTAL)
+SKINS_DESC=	Add skins
+THEMES_DESC=	Add extra icon themes
+NODEBUG_DESC=	Define NO_DEBUG_ON_CONSOLE
+EX_PATCH_DESC=	Apply patches(EXPERIMENTAL)
+MPLAYER_DESC=	Use MPlayer as backend
+MPLAYER2_DESC=	Use MPlayer2 as backend
 
-OPTIONS_DEFAULT=DOCS NODEBUG EX_PATCH
+OPTIONS_DEFAULT=DOCS NODEBUG EX_PATCH MPLAYER
 
 SUB_FILES=	pkg-message
-
 CONFLICTS=	smplayer-0.*
 
 .include <bsd.port.options.mk>
 
+.if ${PORT_OPTIONS:MMPLAYER}
+RUN_DEPENDS+=	mplayer:${PORTSDIR}/multimedia/mplayer
+.endif
+
 .if ${PORT_OPTIONS:MMPLAYER2}
-RUN_DEPENDS=	mplayer:${PORTSDIR}/multimedia/mplayer2
-.else
-RUN_DEPENDS=	mplayer:${PORTSDIR}/multimedia/mplayer
+RUN_DEPENDS+=	mplayer:${PORTSDIR}/multimedia/mplayer2
 .endif
 
 .if ${PORT_OPTIONS:MSKINS}
@@ -59,9 +61,9 @@ RUN_DEPENDS+=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smplayer
 .endif
 
 .if ${PORT_OPTIONS:MEX_PATCH}
-PATCH_SITES=	https://gist.github.com/r1ke/8748732/raw/29bd3165e51eea1a65b30b4b2a6eec88b1655e60/:1 \
+PATCH_SITES+=	https://gist.github.com/r1ke/8748732/raw/29bd3165e51eea1a65b30b4b2a6eec88b1655e60/:1 \
 		https://gist.github.com/r1ke/8748732/raw/25fe2ead31b516af3f9541a0a9b594319e83e58c/:2
-PATCHFILES=	compactmode_without_titlebar.diff:1 \
+PATCHFILES+=	compactmode_without_titlebar.diff:1 \
 		shrinkable_playlist.diff:2
 .endif
 
@@ -81,8 +83,9 @@ post-patch:
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
-
+.if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
 	${INSTALL_DATA} ${PORTDOCS:S|^|${WRKSRC}/|} ${STAGEDIR}${DOCSDIR}
+.endif
 
 .include <bsd.port.mk>

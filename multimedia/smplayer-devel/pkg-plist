@@ -2,11 +2,6 @@
 man/man1/smplayer.1.gz
 share/applications/smplayer.desktop
 share/applications/smplayer_enqueue.desktop
-%%PORTDOCS%%%%DOCSDIR%%/Changelog
-%%PORTDOCS%%%%DOCSDIR%%/Not_so_obvious_things.txt
-%%PORTDOCS%%%%DOCSDIR%%/Readme.txt
-%%PORTDOCS%%%%DOCSDIR%%/Release_notes.txt
-%%PORTDOCS%%%%DOCSDIR%%/Watching_TV.txt
 share/icons/hicolor/128x128/apps/smplayer.png
 share/icons/hicolor/16x16/apps/smplayer.png
 share/icons/hicolor/192x192/apps/smplayer.png
@@ -87,4 +82,3 @@ share/icons/hicolor/scalable/apps/smplayer.svg
 @dirrmtry share/icons/hicolor/128x128
 @dirrmtry share/icons/hicolor
 @dirrmtry share/icons
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%
