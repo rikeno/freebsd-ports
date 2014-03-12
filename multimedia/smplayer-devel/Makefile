@@ -11,7 +11,7 @@ COMMENT=	Qt based MPlayer front-end
 
 LICENSE=	GPLv2
 
-SVN_REV=	6004
+SVN_REV=	6081
 USE_QT4=	gui network script xml moc_build rcc_build uic_build \
 		uic3_build porting_build linguist_build
 ALL_TARGET=	src/smplayer
@@ -44,8 +44,8 @@ SKINS_RUN_DEPENDS=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smp
 THEMES_RUN_DEPENDS=	${LOCALBASE}/share/smplayer/themes:${PORTSDIR}/multimedia/smplayer-themes
 MPLAYER_RUN_DEPENDS=	mplayer:${PORTSDIR}/multimedia/mplayer
 MPLAYER2_RUN_DEPENDS=	mplayer:${PORTSDIR}/multimedia/mplayer2
-EX_PATCH_PATCH_SITES=	https://gist.github.com/r1ke/8748732/raw/29bd3165e51eea1a65b30b4b2a6eec88b1655e60/:1 \
-			https://gist.github.com/r1ke/8748732/raw/25fe2ead31b516af3f9541a0a9b594319e83e58c/:2
+EX_PATCH_PATCH_SITES=	https://gist.github.com/r1ke/8748732/raw/b5d43e7751962bfa79744327d8996e9a89e7697c/:1 \
+			https://gist.github.com/r1ke/8748732/raw/9fd1195c4fc7358ba31754f410a93da0b8c2486d/:2
 EX_PATCH_PATCHFILES+=	compactmode_without_titlebar.diff:1 \
 			shrinkable_playlist.diff:2
 
