@@ -1,13 +1,7 @@
-/you/have/to/check/what/makeplist/gives/you
 %%QT_BINDIR%%/smplayer
 man/man1/smplayer.1.gz
 share/applications/smplayer.desktop
 share/applications/smplayer_enqueue.desktop
-%%PORTDOCS%%%%DOCSDIR%%/Changelog
-%%PORTDOCS%%%%DOCSDIR%%/Not_so_obvious_things.txt
-%%PORTDOCS%%%%DOCSDIR%%/Readme.txt
-%%PORTDOCS%%%%DOCSDIR%%/Release_notes.txt
-%%PORTDOCS%%%%DOCSDIR%%/Watching_TV.txt
 share/icons/hicolor/128x128/apps/smplayer.png
 share/icons/hicolor/16x16/apps/smplayer.png
 share/icons/hicolor/192x192/apps/smplayer.png
@@ -66,27 +60,26 @@ share/icons/hicolor/scalable/apps/smplayer.svg
 %%DATADIR%%/translations/smplayer_vi_VN.qm
 %%DATADIR%%/translations/smplayer_zh_CN.qm
 %%DATADIR%%/translations/smplayer_zh_TW.qm
-@dirrmtry %%DATADIR%%/translations
-@dirrmtry %%DATADIR%%/shortcuts
-@dirrmtry %%DATADIR%%
-@dirrmtry share/icons/hicolor/scalable/apps
-@dirrmtry share/icons/hicolor/scalable
-@dirrmtry share/icons/hicolor/64x64/apps
-@dirrmtry share/icons/hicolor/64x64
-@dirrmtry share/icons/hicolor/512x512/apps
-@dirrmtry share/icons/hicolor/512x512
-@dirrmtry share/icons/hicolor/32x32/apps
-@dirrmtry share/icons/hicolor/32x32
-@dirrmtry share/icons/hicolor/256x256/apps
-@dirrmtry share/icons/hicolor/256x256
-@dirrmtry share/icons/hicolor/22x22/apps
-@dirrmtry share/icons/hicolor/22x22
-@dirrmtry share/icons/hicolor/192x192/apps
-@dirrmtry share/icons/hicolor/192x192
-@dirrmtry share/icons/hicolor/16x16/apps
-@dirrmtry share/icons/hicolor/16x16
 @dirrmtry share/icons/hicolor/128x128/apps
 @dirrmtry share/icons/hicolor/128x128
+@dirrmtry share/icons/hicolor/16x16/apps
+@dirrmtry share/icons/hicolor/16x16
+@dirrmtry share/icons/hicolor/192x192/apps
+@dirrmtry share/icons/hicolor/192x192
+@dirrmtry share/icons/hicolor/22x22/apps
+@dirrmtry share/icons/hicolor/22x22
+@dirrmtry share/icons/hicolor/256x256/apps
+@dirrmtry share/icons/hicolor/256x256
+@dirrmtry share/icons/hicolor/32x32/apps
+@dirrmtry share/icons/hicolor/32x32
+@dirrmtry share/icons/hicolor/512x512/apps
+@dirrmtry share/icons/hicolor/512x512
+@dirrmtry share/icons/hicolor/64x64/apps
+@dirrmtry share/icons/hicolor/64x64
+@dirrmtry share/icons/hicolor/scalable/apps
+@dirrmtry share/icons/hicolor/scalable
 @dirrmtry share/icons/hicolor
 @dirrmtry share/icons
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%
+@dirrmtry %%DATADIR%%/shortcuts
+@dirrmtry %%DATADIR%%/translations
+@dirrmtry %%DATADIR%%
