@@ -1,7 +1,13 @@
+/you/have/to/check/what/makeplist/gives/you
 %%QT_BINDIR%%/smplayer
 man/man1/smplayer.1.gz
 share/applications/smplayer.desktop
 share/applications/smplayer_enqueue.desktop
+%%PORTDOCS%%%%DOCSDIR%%/Changelog
+%%PORTDOCS%%%%DOCSDIR%%/Not_so_obvious_things.txt
+%%PORTDOCS%%%%DOCSDIR%%/Readme.txt
+%%PORTDOCS%%%%DOCSDIR%%/Release_notes.txt
+%%PORTDOCS%%%%DOCSDIR%%/Watching_TV.txt
 share/icons/hicolor/128x128/apps/smplayer.png
 share/icons/hicolor/16x16/apps/smplayer.png
 share/icons/hicolor/192x192/apps/smplayer.png
@@ -22,6 +28,7 @@ share/icons/hicolor/scalable/apps/smplayer.svg
 %%DATADIR%%/translations/smplayer_da.qm
 %%DATADIR%%/translations/smplayer_de.qm
 %%DATADIR%%/translations/smplayer_el_GR.qm
+%%DATADIR%%/translations/smplayer_en_GB.qm
 %%DATADIR%%/translations/smplayer_en_US.qm
 %%DATADIR%%/translations/smplayer_es.qm
 %%DATADIR%%/translations/smplayer_et.qm
@@ -82,3 +89,4 @@ share/icons/hicolor/scalable/apps/smplayer.svg
 @dirrmtry share/icons/hicolor/128x128
 @dirrmtry share/icons/hicolor
 @dirrmtry share/icons
+%%PORTDOCS%%@dirrmtry %%DOCSDIR%%

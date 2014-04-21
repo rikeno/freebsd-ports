@@ -1,9 +1,9 @@
 # $FreeBSD$
 
 PORTNAME=	smplayer
-PORTVERSION=	0.8.6.r${SVN_REV}
+PORTVERSION=	14.3.0.${SVN_REV}
 CATEGORIES=	multimedia audio
-MASTER_SITES=	http://www.assembla.com/code/smplayer/subversion/nodes/${SVN_REV}/${PORTNAME}/trunk?_format=zip?dummy=/
+MASTER_SITES=	https://www.assembla.com/code/smplayer/subversion/nodes/${SVN_REV}/${PORTNAME}/trunk?_format=zip?dummy=/
 PKGNAMESUFFIX=	-devel
 
 MAINTAINER=	ports@FreeBSD.org
@@ -11,21 +11,20 @@ COMMENT=	Qt based MPlayer front-end
 
 LICENSE=	GPLv2
 
-SVN_REV=	6081
+SVN_REV=	6215
 USE_QT4=	gui network script xml moc_build rcc_build uic_build \
 		uic3_build porting_build linguist_build
 ALL_TARGET=	src/smplayer
 CONFIGURE_WRKSRC=	${WRKSRC}/src
 MAKE_ARGS+=	PREFIX=${PREFIX} DESTDIR=${STAGEDIR}
-USE_ZIP=	yes
 NO_WRKSUBDIR=	yes
-USES=		desktop-file-utils dos2unix gmake qmake
+USES=		desktop-file-utils dos2unix gmake qmake zip
 DOS2UNIX_REGEX=	.*.[^p][^n][^g]$
 INSTALLS_ICONS=	yes
 PORTDOCS=	Changelog Not_so_obvious_things.txt Readme.txt \
 		Release_notes.txt Watching_TV.txt
 SUB_FILES=	pkg-message
-CONFLICTS=	smplayer-0.*
+CONFLICTS=	smplayer-14.*
 
 OPTIONS_DEFINE=	DOCS SKINS THEMES NODEBUG EX_PATCH
 OPTIONS_SINGLE=	BACKEND
