@@ -51,6 +51,7 @@ share/icons/hicolor/scalable/apps/smplayer.svg
 %%DATADIR%%/translations/smplayer_ru_RU.qm
 %%DATADIR%%/translations/smplayer_sk.qm
 %%DATADIR%%/translations/smplayer_sl_SI.qm
+%%DATADIR%%/translations/smplayer_sq_AL.qm
 %%DATADIR%%/translations/smplayer_sr.qm
 %%DATADIR%%/translations/smplayer_sv.qm
 %%DATADIR%%/translations/smplayer_th.qm
@@ -60,26 +61,3 @@ share/icons/hicolor/scalable/apps/smplayer.svg
 %%DATADIR%%/translations/smplayer_vi_VN.qm
 %%DATADIR%%/translations/smplayer_zh_CN.qm
 %%DATADIR%%/translations/smplayer_zh_TW.qm
-@dirrmtry share/icons/hicolor/128x128/apps
-@dirrmtry share/icons/hicolor/128x128
-@dirrmtry share/icons/hicolor/16x16/apps
-@dirrmtry share/icons/hicolor/16x16
-@dirrmtry share/icons/hicolor/192x192/apps
-@dirrmtry share/icons/hicolor/192x192
-@dirrmtry share/icons/hicolor/22x22/apps
-@dirrmtry share/icons/hicolor/22x22
-@dirrmtry share/icons/hicolor/256x256/apps
-@dirrmtry share/icons/hicolor/256x256
-@dirrmtry share/icons/hicolor/32x32/apps
-@dirrmtry share/icons/hicolor/32x32
-@dirrmtry share/icons/hicolor/512x512/apps
-@dirrmtry share/icons/hicolor/512x512
-@dirrmtry share/icons/hicolor/64x64/apps
-@dirrmtry share/icons/hicolor/64x64
-@dirrmtry share/icons/hicolor/scalable/apps
-@dirrmtry share/icons/hicolor/scalable
-@dirrmtry share/icons/hicolor
-@dirrmtry share/icons
-@dirrmtry %%DATADIR%%/shortcuts
-@dirrmtry %%DATADIR%%/translations
-@dirrmtry %%DATADIR%%
